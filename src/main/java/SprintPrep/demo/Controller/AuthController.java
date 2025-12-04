@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 @RestController
-@RequestMapping("/auth/")
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
     private final OAuth2AuthorizedClientService clientService;
 
-    @GetMapping("Login")
+    @GetMapping("login")
     public void login(){
 
     }

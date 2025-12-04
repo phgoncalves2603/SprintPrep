@@ -1,6 +1,7 @@
 package SprintPrep.demo.Github;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -32,8 +33,9 @@ public class GithubClient {
                 .uri("/repos/{owner}/{repo}/commits", owner, repo)
                 .headers(h -> h.setBearerAuth(token))
                 .retrieve()
-                .bodyToFlux(Map.class)
+                .bodyToFlux(new ParameterizedTypeReference<Map<String, Object>>() {})
                 .collectList()
                 .block();
+
     }
 }
